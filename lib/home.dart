@@ -7,7 +7,7 @@ import 'colors.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
-  static const String RouteName = "Home";
+  static const String routeName = "home " ;
 
   @override
   State<HomePage> createState() => _HomePageState();
