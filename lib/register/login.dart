@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:todo/firebase_fun/firebase_function.dart';
 import 'package:todo/home.dart';
+import 'package:todo/providers/my_provider.dart';
 import 'package:todo/register/signup.dart';
 import 'package:todo/tabs/home_tab.dart';
 
@@ -11,6 +13,7 @@ class LoginScreen extends StatelessWidget {
   var passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<MyProvider>(context);
     return Scaffold(
       appBar: AppBar(
         title: const Text('Login Screen'),
@@ -54,7 +57,10 @@ class LoginScreen extends StatelessWidget {
                         ],
                       ),
                     );
-                  },onSuccess: (){Navigator.pushNamedAndRemoveUntil(context,HomePage.routeName,(route) => false,);});
+                  },onSuccess: () async {
+provider.initUser();
+ await Future.delayed(Duration(microseconds: 500));
+                        Navigator.pushNamedAndRemoveUntil(context,HomePage.routeName,(route) => false,);});
                 },
                 child: const Text('LogIn'),
               ),

@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:todo/colors.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:todo/edit_tab.dart';
 import 'package:todo/firebase_fun/firebase_function.dart';
 import 'package:todo/models/task_model.dart';
 
@@ -40,7 +41,7 @@ class ItemCount extends StatelessWidget {
                 onPressed: (BuildContext context) { FirebaseFunctions.DeleteTask(taskModel.id); },
               ),
               SlidableAction(autoClose: true,
-                onPressed: (BuildContext context) { },
+                onPressed: (BuildContext context) {Navigator.pushNamed(context, EditTab.routeName); },
                 backgroundColor: AppColors.AppColor,
                 foregroundColor: Colors.white,
                 icon: Icons.share,
