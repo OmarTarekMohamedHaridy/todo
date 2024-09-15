@@ -27,8 +27,10 @@ class ItemCount extends StatelessWidget {
           height: 115,
           margin: EdgeInsets.all(5),
           decoration: BoxDecoration(
+
               color: provider.Mytheme ==ThemeMode.light?
-              Color(0xffFFFFFF):Color(0xff141922), borderRadius: BorderRadius.circular(20)),
+              Colors.black26:
+              Color(0xff141922), borderRadius: BorderRadius.circular(20)),
           child: Slidable(
             startActionPane: ActionPane(motion:const DrawerMotion(),
             extentRatio: 0.7,
