@@ -16,7 +16,7 @@ class LoginScreen extends StatelessWidget {
     var provider = Provider.of<MyProvider>(context);
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Login Screen',style: TextStyle(fontSize: 20),),
+        title: const Text('Login Screen',style: TextStyle(fontSize: 20,color: Colors.white),),
       ),
       body: Center(
         child: Padding(
