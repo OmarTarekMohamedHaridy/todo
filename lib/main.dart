@@ -3,6 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:provider/provider.dart';
 import 'package:todo/edit_tab.dart';
 import 'package:todo/home.dart';
@@ -14,6 +15,9 @@ import 'package:todo/theme.dart';
 import 'firebase_options.dart';
 
 void main ()async{
+
+  await Future.delayed(const Duration(seconds: 3));
+  FlutterNativeSplash.remove();
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
@@ -22,9 +26,10 @@ void main ()async{
 
   await FirebaseFirestore.instance.enableNetwork();
   runApp(ChangeNotifierProvider(
-      create: (context) => MyProvider(),
+      create: (context) => MyProvider()..getTheme(),
 
       child:
+
       MyApp()));
 }
 
