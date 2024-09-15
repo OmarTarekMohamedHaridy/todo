@@ -1,10 +1,12 @@
 import 'package:calendar_timeline/calendar_timeline.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:todo/colors.dart';
 import 'package:todo/firebase_fun/firebase_function.dart';
 
 import '../item_count.dart';
+import '../providers/my_provider.dart';
 
 class HomeTab extends StatefulWidget {
    HomeTab({super.key});
@@ -18,6 +20,7 @@ DateTime date = DateTime.now();
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<MyProvider>(context);
     return Padding(
       padding: const EdgeInsets.only(top: 20),
       child: Column(
@@ -33,8 +36,12 @@ DateTime date = DateTime.now();
               });
             },
             leftMargin: 20,
-            monthColor: AppColors.words,
-            dayColor: AppColors.AppColor,
+            monthColor: provider.Mytheme == ThemeMode.light
+      ? Color(0xff5D9CEC)
+            : Color(0xffFFFFFF),
+            dayColor: provider.Mytheme == ThemeMode.light
+      ? Color(0xff5D9CEC)
+            : Color(0xffFFFFFF),
             activeDayColor: Colors.white,
             activeBackgroundDayColor: AppColors.AppColor,
             dotColor: Colors.white,
@@ -42,7 +49,7 @@ DateTime date = DateTime.now();
             locale: 'en_ISO',
           ),
           SizedBox(
-            height: 12,
+            height: 30,
           ),
 
           StreamBuilder(
@@ -64,7 +71,9 @@ DateTime date = DateTime.now();
 var Tasks = snapshot.data?.docs.map((doc) =>doc.data()).toList() ?? [];
               if(Tasks.isEmpty){
                 return  Center(child:
-                      Text("No Tasks")
+                      Text("No Tasks",style: TextStyle(color:provider.Mytheme == ThemeMode.light
+                          ? Color(0xff5D9CEC)
+                          : Color(0xffFFFFFF),),)
 
                 );
               }

@@ -4,11 +4,13 @@ import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:provider/provider.dart';
 import 'package:todo/colors.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:todo/edit_tab.dart';
 import 'package:todo/firebase_fun/firebase_function.dart';
 import 'package:todo/models/task_model.dart';
+import 'package:todo/providers/my_provider.dart';
 
 
 class ItemCount extends StatelessWidget {
@@ -17,7 +19,7 @@ class ItemCount extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
+    var provider = Provider.of<MyProvider>(context);
     return
       Container(
 
@@ -25,7 +27,8 @@ class ItemCount extends StatelessWidget {
           height: 115,
           margin: EdgeInsets.all(5),
           decoration: BoxDecoration(
-              color: Colors.white, borderRadius: BorderRadius.circular(20)),
+              color: provider.Mytheme ==ThemeMode.light?
+              Color(0xffFFFFFF):Color(0xff141922), borderRadius: BorderRadius.circular(20)),
           child: Slidable(
             startActionPane: ActionPane(motion:const DrawerMotion(),
             extentRatio: 0.7,
@@ -41,7 +44,8 @@ class ItemCount extends StatelessWidget {
                 onPressed: (BuildContext context) { FirebaseFunctions.DeleteTask(taskModel.id); },
               ),
               SlidableAction(autoClose: true,
-                onPressed: (BuildContext context) {Navigator.pushNamed(context, EditTab.routeName); },
+                onPressed: (BuildContext context) {Navigator.pushNamed(context, EditTab.routeName,
+                arguments: taskModel); },
                 backgroundColor: AppColors.AppColor,
                 foregroundColor: Colors.white,
                 icon: Icons.share,

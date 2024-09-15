@@ -22,7 +22,7 @@ int selectedIndex = 0;
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    var pro = Provider.of<MyProvider>(context);
+    var provider = Provider.of<MyProvider>(context);
 
     return Scaffold(floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
 extendBody: true,
@@ -30,21 +30,27 @@ extendBody: true,
     FirebaseAuth.instance.signOut();
     Navigator.pushNamedAndRemoveUntil(context, LoginScreen.routeName, (route) => false,);
       }, icon:Icon(Icons.exit_to_app) )],
-        backgroundColor: AppColors.AppColor,
+
         toolbarHeight: 70,
         title: Text(
-          "Hello ${pro.userModel?.name}",
-          style: TextStyle(
-              color: Colors.white, fontWeight: FontWeight.w700, fontSize: 22),
+          "Hello ${provider.userModel?.name}",
+          style: TextStyle(color: Colors.white,
+            fontWeight: FontWeight.w700, fontSize: 22),
         ),
       ),
       body: Tabs[selectedIndex]
      ,
       floatingActionButton: FloatingActionButton(
+
         onPressed: () {
        showModalBottomSheet(isScrollControlled: true,
+           backgroundColor:    provider.Mytheme == ThemeMode.light
+           ? Color(0xffFFFFFF)
+              : Color(0xff060E1E),
+
 
            context: context, builder: (context) => Padding(
+
              padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom)
              ,child: ShowBottomSheet(),
            ));
@@ -53,13 +59,13 @@ extendBody: true,
           Icons.add,
           color: Colors.white,
         ),
-        backgroundColor: AppColors.AppColor,
+        backgroundColor: AppColors.AppColor       ,
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(30),
             side: BorderSide(width: 3, color: Colors.white)),
       ),
       bottomNavigationBar: BottomAppBar(
-        color: Colors.white,
+        color: Colors.black26,
         notchMargin:8 ,
         shape: CircularNotchedRectangle(),
         padding:EdgeInsets.zero,
