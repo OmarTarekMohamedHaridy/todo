@@ -29,7 +29,7 @@ class ItemCount extends StatelessWidget {
           decoration: BoxDecoration(
 
               color: provider.Mytheme ==ThemeMode.light?
-              Colors.black26:
+              Colors.white10:
               Color(0xff141922), borderRadius: BorderRadius.circular(20)),
           child: Slidable(
             startActionPane: ActionPane(motion:const DrawerMotion(),
@@ -40,7 +40,7 @@ class ItemCount extends StatelessWidget {
                 foregroundColor: Colors.white,
                 icon: Icons.delete,
                 label: 'Delete',
-               borderRadius: BorderRadius.only(bottomLeft: Radius.circular(30),topLeft: Radius.circular(30)),
+               borderRadius: BorderRadius.only(bottomLeft: Radius.circular(20),topLeft: Radius.circular(20)),
                 flex: 2,
                 padding: EdgeInsets.zero,
                 onPressed: (BuildContext context) { FirebaseFunctions.DeleteTask(taskModel.id); },
@@ -50,7 +50,7 @@ class ItemCount extends StatelessWidget {
                 arguments: taskModel); },
                 backgroundColor: AppColors.AppColor,
                 foregroundColor: Colors.white,
-                icon: Icons.share,
+                icon: Icons.edit,
                 label: 'Edit',
               ),
             ],),

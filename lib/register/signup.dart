@@ -1,10 +1,13 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:provider/provider.dart';
 import 'package:todo/firebase_fun/firebase_function.dart';
 import 'package:todo/home.dart';
 import 'package:todo/register/login.dart';
 import 'package:todo/tabs/home_tab.dart';
+
+import '../providers/my_provider.dart';
 
 class Signup extends StatefulWidget {
   static const String routeName = "SingUp ";
@@ -29,9 +32,10 @@ class _SignupState extends State<Signup> {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<MyProvider>(context);
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Login Screen'),
+        title: const Text('Login Screen',style: TextStyle(fontSize: 20),),
       ),
       body: Padding(
         padding: const EdgeInsets.all(18.0),
@@ -54,7 +58,9 @@ class _SignupState extends State<Signup> {
                   controller: emailController,
                   keyboardType: TextInputType.emailAddress,
                   decoration: InputDecoration(
-                    labelText: 'Email',
+                    labelText: 'Email',labelStyle: TextStyle(color: provider.Mytheme == ThemeMode.light
+                      ? Color(0xff060E1E)
+                      : Color(0xffFFFFFF),)
                   ),
                 ),
                 TextFormField(
@@ -78,7 +84,9 @@ class _SignupState extends State<Signup> {
 
                   keyboardType: TextInputType.text,
                   decoration: InputDecoration(
-                    labelText: 'Password',
+                    labelText: 'Password',labelStyle: TextStyle(color: provider.Mytheme == ThemeMode.light
+                      ? Color(0xff060E1E)
+                        : Color(0xffFFFFFF),)
                   ),
                 ),
                 TextFormField(
@@ -91,7 +99,9 @@ class _SignupState extends State<Signup> {
                   },
                   keyboardType: TextInputType.phone,
                   decoration: InputDecoration(
-                    labelText: 'Phone',
+                    labelText: 'Phone',labelStyle: TextStyle(color: provider.Mytheme == ThemeMode.light
+                      ? Color(0xff060E1E)
+                      : Color(0xffFFFFFF),)
                   ),
                 ),
                 TextFormField(
@@ -104,7 +114,9 @@ class _SignupState extends State<Signup> {
                     return null ;
                   },
                   decoration: InputDecoration(
-                    labelText: 'UserName',
+                    labelText: 'UserName',labelStyle: TextStyle(color: provider.Mytheme == ThemeMode.light
+                      ? Color(0xff060E1E)
+                      : Color(0xffFFFFFF),)
                   ),
                 ),
                 const SizedBox(height: 16),
@@ -122,7 +134,9 @@ class _SignupState extends State<Signup> {
                   obscureText: false,
                   keyboardType: TextInputType.phone,
                   decoration: InputDecoration(
-                    labelText: 'Age',
+                    labelText: 'Age',labelStyle: TextStyle(color: provider.Mytheme == ThemeMode.light
+                      ? Color(0xff060E1E)
+                      : Color(0xffFFFFFF),)
                   ),
                 ),
                 const SizedBox(height: 16),
@@ -172,7 +186,9 @@ class _SignupState extends State<Signup> {
               TextSpan(children: [
                 TextSpan(
                     text: "I Have An Account ??",
-                    style: TextStyle(fontSize: 20)),
+                    style: TextStyle(fontSize: 20, color: provider.Mytheme == ThemeMode.light
+                    ? Color(0xff060E1E)
+                    : Colors.cyanAccent,)),
                 TextSpan(
                     text: " LogIn",
                     style: TextStyle(fontSize: 25, color: Colors.indigo)),

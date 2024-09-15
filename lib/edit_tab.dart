@@ -56,6 +56,11 @@ class _EditTabState extends State<EditTab> {
                   Colors.black:Color(0xffFFFFFF),),)),
                     SizedBox(height: 40,),
                     TextFormField(
+                      style: TextStyle(
+                        color: provider.Mytheme == ThemeMode.light
+                            ? Color(0xff060E1E)
+                            : Color(0xffFFFFFF),
+                      ),
                       initialValue: taskModel.title,
                       onChanged: (value) {
                         taskModel.title = value ;
@@ -75,6 +80,11 @@ class _EditTabState extends State<EditTab> {
                       height: 20,
                     ),
                     TextFormField(
+                      style: TextStyle(
+                        color: provider.Mytheme == ThemeMode.light
+                            ? Color(0xff060E1E)
+                            : Color(0xffFFFFFF),
+                      ),
                       initialValue: taskModel.subTitle,
                       onChanged: (value) {
                         taskModel.subTitle = value ;
@@ -102,6 +112,7 @@ class _EditTabState extends State<EditTab> {
                       height: 15,
                     ),
                     GestureDetector(
+
                       onTap: () async{
                      DateTime? newDate = await   selectDateFun() ;
                      if(newDate != null){
@@ -113,7 +124,9 @@ class _EditTabState extends State<EditTab> {
                       },
                       child: Text(
                        DateFormat.yMd().format(DateUtils.dateOnly(DateTime.fromMillisecondsSinceEpoch(taskModel.date))),
-                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
+                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400, color: provider.Mytheme == ThemeMode.light
+                            ? Color(0xff060E1E)
+                            : Color(0xffFFFFFF),),
                         textAlign: TextAlign.center,
                       ),
                     ),

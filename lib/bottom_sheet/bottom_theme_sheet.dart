@@ -23,7 +23,7 @@ class BottomThemeSheet extends StatelessWidget {
               child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text("light",style: TextStyle(color: provider.Mytheme==ThemeMode.light?
-                  Colors.white:Colors.black,
+                  Colors.white:Color(0xff5D9CEC),
 
                       fontWeight: FontWeight.w600,
                       fontSize:35

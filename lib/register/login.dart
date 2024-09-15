@@ -16,7 +16,7 @@ class LoginScreen extends StatelessWidget {
     var provider = Provider.of<MyProvider>(context);
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Login Screen'),
+        title: const Text('Login Screen',style: TextStyle(fontSize: 20),),
       ),
       body: Center(
         child: Padding(
@@ -25,17 +25,31 @@ class LoginScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               TextField(
+                style: TextStyle(
+                  color: provider.Mytheme == ThemeMode.light
+                      ? Color(0xff060E1E)
+                      : Color(0xffFFFFFF),
+                ),
                 controller: emailController,
                 decoration: InputDecoration(
-                  labelText: 'Email',
+                  labelText: 'Email',labelStyle: TextStyle(color: provider.Mytheme == ThemeMode.light
+                    ? Color(0xff060E1E)
+                    : Color(0xffFFFFFF),)
                 ),
               ),
               const SizedBox(height: 16),
               TextField(
+                style: TextStyle(
+                  color: provider.Mytheme == ThemeMode.light
+                      ? Color(0xff060E1E)
+                      : Color(0xffFFFFFF),
+                ),
                 controller: passwordController,
                 obscureText: true,
                 decoration: InputDecoration(
-                  labelText: 'Password',
+                  labelText: 'Password',labelStyle: TextStyle(color: provider.Mytheme == ThemeMode.light
+                    ? Color(0xff060E1E)
+                    : Color(0xffFFFFFF),)
                 ),
               ),
               const SizedBox(height: 16),
@@ -76,10 +90,15 @@ provider.initUser();
               TextSpan(children: [
                 TextSpan(
                     text: "Cant Have An Account ??",
-                    style: TextStyle(fontSize: 20)),
+                    style: TextStyle(fontSize: 20,
+                      color: provider.Mytheme == ThemeMode.light
+                          ? Color(0xff060E1E)
+                          : Color(0xffFFFFFF),
+                    ),),
                 TextSpan(
                     text: "  Sign Up",
-                    style: TextStyle(fontSize: 25, color: Colors.indigo)),
+                    style: TextStyle(fontSize: 25, color:
+                    Colors.indigo)),
               ])),
         ),
         onTap: () {
