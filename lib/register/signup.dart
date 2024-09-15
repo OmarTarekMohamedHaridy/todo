@@ -46,6 +46,11 @@ class _SignupState extends State<Signup> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 TextFormField(
+                  style: TextStyle(
+                    color: provider.Mytheme == ThemeMode.light
+                        ? Color(0xff060E1E)
+                        : Color(0xffFFFFFF),
+                  ),
            validator: (value) {
              if(value ==null || value.isEmpty){
                return "please Enter Your Email" ;
@@ -64,6 +69,11 @@ class _SignupState extends State<Signup> {
                   ),
                 ),
                 TextFormField(
+                  style: TextStyle(
+                    color: provider.Mytheme == ThemeMode.light
+                        ? Color(0xff060E1E)
+                        : Color(0xffFFFFFF),
+                  ),
                   controller: passwordController,
                   obscureText: true,
                   validator: (value) {
@@ -90,6 +100,11 @@ class _SignupState extends State<Signup> {
                   ),
                 ),
                 TextFormField(
+                  style: TextStyle(
+                    color: provider.Mytheme == ThemeMode.light
+                        ? Color(0xff060E1E)
+                        : Color(0xffFFFFFF),
+                  ),
                   controller: phoneController,
                   validator: (value) {
                     if(value ==null || value.isEmpty){
@@ -105,6 +120,11 @@ class _SignupState extends State<Signup> {
                   ),
                 ),
                 TextFormField(
+                  style: TextStyle(
+                    color: provider.Mytheme == ThemeMode.light
+                        ? Color(0xff060E1E)
+                        : Color(0xffFFFFFF),
+                  ),
                   controller: userNameController,
                   keyboardType: TextInputType.text,
                   validator: (value) {
@@ -121,6 +141,11 @@ class _SignupState extends State<Signup> {
                 ),
                 const SizedBox(height: 16),
                 TextFormField(
+                  style: TextStyle(
+                    color: provider.Mytheme == ThemeMode.light
+                        ? Color(0xff060E1E)
+                        : Color(0xffFFFFFF),
+                  ),
                   validator: (value) {
                     if (int.parse(value!)<20){
                       return "you must be more than 20 yo" ;

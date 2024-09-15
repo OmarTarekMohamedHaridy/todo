@@ -89,7 +89,7 @@ provider.initUser();
               textAlign: TextAlign.center,
               TextSpan(children: [
                 TextSpan(
-                    text: "Cant Have An Account ??",
+                    text: "You Don't Have An Account ??",
                     style: TextStyle(fontSize: 20,
                       color: provider.Mytheme == ThemeMode.light
                           ? Color(0xff060E1E)
