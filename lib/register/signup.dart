@@ -37,15 +37,19 @@ class _SignupState extends State<Signup> {
       appBar: AppBar(
         title: const Text('Sign Up',style: TextStyle(fontSize: 20,color: Colors.white),),
       ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(18.0),
+      body:
+
+      Padding(
+        padding: const EdgeInsets.only(top:160.0,right: 18,left: 18),
+        child: SingleChildScrollView(
           child: Center(
             child: Form(
               key: formKey,
               child: Column(
+                mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+
                   TextFormField(
                     style: TextStyle(
                       color: provider.Mytheme == ThemeMode.light
@@ -92,7 +96,7 @@ class _SignupState extends State<Signup> {
                           return null;
                         }
                     },
-        
+
                     keyboardType: TextInputType.text,
                     decoration: InputDecoration(
                       labelText: 'Password',labelStyle: TextStyle(color: provider.Mytheme == ThemeMode.light
@@ -175,7 +179,7 @@ class _SignupState extends State<Signup> {
                             age: int.parse(ageController.text),
                             username: userNameController.text,
                             onSuccess: () {
-        
+
                               Navigator.pushNamedAndRemoveUntil(context, LoginScreen.routeName,(route) => false,);
                             }, onError: (message) {
                           showDialog(
@@ -186,7 +190,7 @@ class _SignupState extends State<Signup> {
                               actions: [
                                 ElevatedButton(
                                     onPressed: () {
-        
+
                                       Navigator.pop(context);
                                     },
                                     child: Text("Ok"))
@@ -195,7 +199,7 @@ class _SignupState extends State<Signup> {
                           );
                         });
                       }
-        
+
                     },
                     child: const Text('SignUp'),
                   ),
